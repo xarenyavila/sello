@@ -1,0 +1,43 @@
+settings:
+    system_name: "[blue]SELLO[/blue]"
+    system_name_html: "<span style='color:blue'>SELLO</span>"
+    user_name: "[aquamarine1]USUARIO[/aquamarine1]"
+    user_name_html: "<span style='color:blue'>USUARIO</span>"
+
+plugins:
+    - random_task
+
+conversations:
+    - 'main.yaml'
+
+strategies:
+    excelent:
+        - say "¡Me da mucho gusto leer eso! Cuéntame todo lo que quieras sobre lo que te hace sentir de esta manera, me haría muy feliz compartir este sentimiento contigo :)"
+        - input answer
+        - say "Suena a que estás teniendo un bonito día y es genial que te sucedan cosas agradables :)"
+        - say "Ahora cuéntame, ¿cuál es tu opinión acerca de esta situación, qué te hace pensar?"
+        - input thoughts
+        - say "Muchas gracias por haberte tomado el tiempo para registrar tus sentimientos hoy."
+        - say "Tu tarea será..."
+        - random_task.execute("tarea")
+        - say tarea
+    sorry:
+        - say "Lamento que te sientas de esta manera. Cuéntame qué es lo que pasa, ¿por qué te sientes así?"
+        - input answer
+        - say "Gracias por compartirme tus sentimientos, estoy para ti <3"
+        - say "Como ya lo hemos platicado antes, hay un responsable de tu malestar emocional, tu pensamiento."
+        - say "Dime, ¿qué es lo que piensas de esta situación?"
+        - input thoughts
+        - say "Gracias por compartirme tus pensamientos."
+        - say "Seguro hay algo de esta situación que está dentro de tu control."
+        - say "Dime 3 maneras en las que tú puedas hacerte responsable de esto, sin una ayuda externa."
+        - input ways
+        - say "Muy bien, ahora ves que hay maneras de mejorar la situación si tomas el control, trabaja en ello el día de hoy :)"
+        - say "Muchas gracias por haberte tomado el tiempo para registrar tus sentimientos hoy."
+
+script:
+    - say f"Hola de nuevo {name}, ¿cómo te sientes hoy?"
+    - input status | asign bien:good mal:bad
+    - if status == "good" then solve excelent
+    - if status == "bad" then solve sorry
+    - say f"No olvides agregar hoy una cosa más a tu lista de cualidades. ¡Nos vemos mañana {name}!"

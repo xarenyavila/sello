@@ -1,0 +1,28 @@
+settings:
+    system_name: "[blue]SELLO[/blue]"
+    system_name_html: "<span style='color:blue'>SELLO</span>"
+    user_name: "[aquamarine1]USUARIO[/aquamarine1]"
+    user_name_html: "<span style='color:blue'>USUARIO</span>"
+
+script:
+    - say "Hola, mi nombre es Sello, que gusto saludarte."
+    - say "¿Cómo te gustaría que te llame?"
+    - input name 
+    - remember name
+    - say f"Un placer conocerte {name}"
+    - say "Mi propósito es ayudarte a desarrollar tu autoestima. ¿Qué aspecto te gustaría trabajar?"
+    - input aspect
+    - remember aspect
+    - say "Excelente decisión"
+    - say "¿Qué cambios específicos esperas ver en tu vida cuando logres mejorar este aspecto?"
+    - input changes
+    - remember changes
+    - say "Eres muy valiente por compartir esto y decidir trabajarlo"
+    - say "Sabes, de acuerdo con el enfoque cognitivo conductual, nuestros pensamientos son la principal razón de nuestro malestar psicológico, entonces si podemos cambiar la manera en la que pensamos también cambiaremos cómo nos sentimos."
+    - say "Pero el problema es que nuestros pensamientos son automáticos, no nos damos cuenta de cuándo aparecen y por ello nos resulta difícil poder cambiarlos."
+    - say "Para eso estoy aquí, para ayudarte a hacer conscientes tus pensamientos y así puedas tener un mejor manejo de ellos."
+    - say "¿Qué te parece?"
+    - input answer
+    - say "¡Perfecto! Vamos a construir juntos una autoestima fuerte :)"
+    - say "Comenzaremos realizando una lista de cosas positivas que hay en tu persona, pueden ser cualidades (físicas o no), acciones positivas que realices, habilidades que tienes, etc. Esta lista la colocarás en un lugar visible para ti, el objetivo es agregar una cosa diaria a esa lista comenzando por hoy."
+    - say "Nos vemos el día de mañana para continuar nuestro viaje. ¡Adiós!"
